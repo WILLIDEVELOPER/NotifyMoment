@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -16,10 +17,12 @@ namespace NotifyMoment.Droid
         AndroidNotificationManager androidNotification = new AndroidNotificationManager();
         public override void OnMessageReceived(RemoteMessage message)
         {
-            Log.Debug(TAG, "From: " + message.From);
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+            IDictionary<string, string> MensajeData = message.Data;
 
-            androidNotification.CrearNotificacionLocal(message.GetNotification().Title, message.GetNotification().Body);
+            string Titulo = MensajeData["notiTitle"];
+            string SubTitulo = MensajeData["notiBody"];
+
+            androidNotification.CrearNotificacionLocal(Titulo, SubTitulo);
         }
 
         public override void OnNewToken(string token)

@@ -12,7 +12,7 @@ using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Core.App;
-using AndroidApp = Android.App.Application;     
+using AndroidApp = Android.App.Application;
 
 namespace NotifyMoment.Droid
 {
